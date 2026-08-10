@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="es-MX">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ficha vehicular · Journey 2023 · B34BLP</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#14161B;
+    --graphite:#20242C;
+    --steel:#3A404B;
+    --silver:#B9BEC6;
+    --silver-hi:#E6E9ED;
+    --paper:#F4F5F7;
+    --engomado:#CE1B24;
+    --engomado-soft:rgba(206,27,36,.14);
+    --line:rgba(255,255,255,.10);
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0}
+  body{
+    background:
+      radial-gradient(1100px 620px at 78% -12%, #2C313B 0%, transparent 62%),
+      var(--ink);
+    color:var(--silver-hi);
+    font-family:"IBM Plex Sans",system-ui,-apple-system,sans-serif;
+    font-size:15px;
+    line-height:1.55;
+    padding:28px 18px 64px;
+    -webkit-font-smoothing:antialiased;
+  }
+  .sheet{max-width:760px;margin:0 auto}
+
+  /* ---------- eyebrow ---------- */
+  .eyebrow{
+    font-family:"Barlow Condensed",sans-serif;
+    text-transform:uppercase;
+    letter-spacing:.22em;
+    font-size:12px;
+    font-weight:600;
+    color:var(--silver);
+  }
+  .eyebrow .dot{color:var(--engomado)}
+
+  h1{
+    font-family:"Barlow Condensed",sans-serif;
+    font-weight:700;
+    font-size:clamp(34px,7vw,54px);
+    line-height:.98;
+    letter-spacing:-.01em;
+    margin:10px 0 0;
+    text-transform:uppercase;
+  }
+  h1 em{font-style:normal;color:var(--silver)}
+
+  /* ---------- hero: placa + engomado ---------- */
+  .hero{
+    display:flex;
+    flex-wrap:wrap;
+    align-items:center;
+    gap:26px;
+    margin:26px 0 34px;
+    padding:24px;
+    border:1px solid var(--line);
+    border-radius:4px;
+    background:linear-gradient(180deg,rgba(255,255,255,.045),rgba(255,255,255,.012));
+  }
+  .plate{
+    background:linear-gradient(180deg,#FFFFFF 0%,#EDEFF2 100%);
+    border:2px solid #9AA1AB;
+    border-radius:9px;
+    padding:8px 16px 10px;
+    box-shadow:0 10px 26px rgba(0,0,0,.45), inset 0 1px 0 #fff;
+    text-align:center;
+    min-width:224px;
+  }
+  .plate .state{
+    font-family:"Barlow Condensed",sans-serif;
+    font-size:11px;
+    font-weight:600;
+    letter-spacing:.26em;
+    text-transform:uppercase;
+    color:#5B6270;
+    border-bottom:1px solid #C6CBD3;
+    padding-bottom:3px;
+  }
+  .plate .chars{
+    font-family:"Barlow Condensed",sans-serif;
+    font-weight:700;
+    font-size:52px;
+    line-height:1.05;
+    letter-spacing:.05em;
+    color:#15181E;
+    margin-top:4px;
+  }
+  .plate .foot{
+    font-family:"IBM Plex Mono",monospace;
+    font-size:9px;
+    letter-spacing:.18em;
+    color:#79808D;
+    text-transform:uppercase;
+  }
+
+  .sticker{
+    width:132px;height:132px;flex:0 0 auto;
+    border-radius:50%;
+    background:radial-gradient(circle at 34% 28%, #F0464E 0%, var(--engomado) 46%, #8E1219 100%);
+    border:4px solid rgba(255,255,255,.82);
+    box-shadow:0 12px 30px rgba(206,27,36,.34);
+    display:flex;flex-direction:column;align-items:center;justify-content:center;
+    text-align:center;color:#fff;
+  }
+  .sticker .num{
+    font-family:"Barlow Condensed",sans-serif;
+    font-size:56px;font-weight:700;line-height:.86;
+  }
+  .sticker .lbl{
+    font-family:"Barlow Condensed",sans-serif;
+    font-size:12px;letter-spacing:.2em;text-transform:uppercase;font-weight:600;
+    opacity:.95;
+  }
+  .hero-note{flex:1 1 190px;min-width:180px}
+  .hero-note p{margin:0;color:var(--silver);font-size:13.5px}
+  .hero-note strong{color:var(--silver-hi)}
+
+  /* ---------- secciones ---------- */
+  section{margin:0 0 34px}
+  h2{
+    font-family:"Barlow Condensed",sans-serif;
+    text-transform:uppercase;
+    letter-spacing:.2em;
+    font-size:13px;
+    font-weight:600;
+    color:var(--silver);
+    margin:0 0 14px;
+    padding-bottom:9px;
+    border-bottom:1px solid var(--line);
+    display:flex;justify-content:space-between;align-items:baseline;gap:12px;
+  }
+  h2 span{color:var(--steel);letter-spacing:.14em;font-size:11px}
+
+  .grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--line);border:1px solid var(--line)}
+  .cell{background:var(--graphite);padding:14px 16px}
+  .cell.wide{grid-column:1/-1}
+  .k{
+    font-family:"Barlow Condensed",sans-serif;
+    text-transform:uppercase;letter-spacing:.16em;font-size:11px;font-weight:600;
+    color:var(--steel);
+  }
+  .v{font-family:"IBM Plex Mono",monospace;font-size:17px;font-weight:500;margin-top:3px;word-break:break-all}
+  .v.small{font-size:15px}
+  .swatch{display:inline-block;width:12px;height:12px;border-radius:2px;margin-right:8px;vertical-align:baseline;border:1px solid rgba(255,255,255,.28)}
+
+  .copy{
+    margin-top:8px;
+    font-family:"Barlow Condensed",sans-serif;
+    text-transform:uppercase;letter-spacing:.16em;font-size:11px;font-weight:600;
+    background:none;border:1px solid var(--steel);color:var(--silver);
+    padding:5px 11px;border-radius:3px;cursor:pointer;
+  }
+  .copy:hover{border-color:var(--silver);color:#fff}
+  .copy:focus-visible{outline:2px solid var(--engomado);outline-offset:2px}
+
+  /* ---------- calendario ---------- */
+  .months{display:grid;grid-template-columns:repeat(12,1fr);gap:4px}
+  .m{
+    text-align:center;padding:12px 2px 10px;border-radius:3px;
+    background:var(--graphite);border:1px solid transparent;
+    font-family:"Barlow Condensed",sans-serif;font-weight:600;font-size:13px;
+    letter-spacing:.06em;color:var(--steel);text-transform:uppercase;
+  }
+  .m.on{background:var(--engomado-soft);border-color:var(--engomado);color:#FF7A80}
+  .m.now{box-shadow:inset 0 -3px 0 var(--silver)}
+  .m .n{display:block;font-family:"IBM Plex Mono",monospace;font-size:9px;color:var(--steel);margin-top:3px}
+  .m.on .n{color:rgba(255,122,128,.7)}
+  .legend{display:flex;gap:20px;flex-wrap:wrap;margin-top:12px;font-size:12.5px;color:var(--silver)}
+  .legend i{display:inline-block;width:11px;height:11px;border-radius:2px;margin-right:7px;vertical-align:-1px}
+
+  .callout{
+    margin-top:18px;padding:16px 18px;border-left:3px solid var(--engomado);
+    background:linear-gradient(90deg,var(--engomado-soft),transparent 72%);
+    border-radius:0 3px 3px 0;
+  }
+  .callout .t{
+    font-family:"Barlow Condensed",sans-serif;text-transform:uppercase;
+    letter-spacing:.18em;font-size:11px;font-weight:600;color:#FF7A80;
+  }
+  .callout .b{font-size:19px;font-weight:600;margin-top:3px;font-family:"Barlow Condensed",sans-serif;letter-spacing:.02em}
+  .callout .c{font-size:13px;color:var(--silver);margin-top:5px}
+
+  /* ---------- días ---------- */
+  .days{display:grid;grid-template-columns:repeat(7,1fr);gap:4px;max-width:400px}
+  .d{
+    text-align:center;padding:11px 0;border-radius:3px;background:var(--graphite);
+    font-family:"Barlow Condensed",sans-serif;font-weight:600;font-size:15px;color:var(--steel);
+    border:1px solid transparent;
+  }
+  .d.on{background:var(--engomado);color:#fff;border-color:var(--engomado)}
+
+  ul.notes{margin:14px 0 0;padding:0;list-style:none}
+  ul.notes li{
+    padding:9px 0 9px 20px;border-top:1px solid var(--line);
+    font-size:13.5px;color:var(--silver);position:relative;
+  }
+  ul.notes li::before{content:"—";position:absolute;left:0;color:var(--steel)}
+  ul.notes li strong{color:var(--silver-hi);font-weight:600}
+
+  footer{
+    margin-top:44px;padding-top:16px;border-top:1px solid var(--line);
+    font-family:"IBM Plex Mono",monospace;font-size:10.5px;color:var(--steel);
+    display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;
+  }
+
+  @media (max-width:600px){
+    .grid{grid-template-columns:1fr}
+    .months{grid-template-columns:repeat(6,1fr)}
+    .plate{min-width:0;width:100%}
+    .plate .chars{font-size:44px}
+  }
+  @media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+  @media print{
+    body{background:#fff;color:#111;padding:0}
+    .sticker{box-shadow:none}
+    .cell{background:#fff;border:1px solid #ccc}
+    .m,.d{background:#f0f0f0}
+    .copy{display:none}
+    h1,.k,.v{color:#111}
+  }
+</style>
+</head>
+<body>
+<div class="sheet">
+
+  <p class="eyebrow">Ficha vehicular <span class="dot">·</span> Ciudad de México</p>
+  <h1>Journey 2023 <em>/ Plata</em></h1>
+
+  <div class="hero">
+    <div class="plate">
+      <div class="state">Ciudad de México</div>
+      <div class="chars">B34BLP</div>
+      <div class="foot">MÉXICO</div>
+    </div>
+    <div class="sticker">
+      <span class="num">4</span>
+      <span class="lbl">Engomado rojo</span>
+    </div>
+    <div class="hero-note">
+      <p>La placa no termina en número, así que manda el <strong>último dígito numérico: 4</strong>. Eso fija el engomado rojo, el bimestre de verificación y el día de Hoy No Circula.</p>
+    </div>
+  </div>
+
+  <section>
+    <h2>Datos de la unidad <span>Identificación</span></h2>
+    <div class="grid">
+      <div class="cell wide">
+        <div class="k">Número de serie (VIN)</div>
+        <div class="v" id="vin">LMWDT1G87P1132945</div>
+        <button class="copy" id="btnVin">Copiar VIN</button>
+      </div>
+      <div class="cell">
+        <div class="k">Placa</div>
+        <div class="v">B34BLP</div>
+      </div>
+      <div class="cell">
+        <div class="k">Modelo</div>
+        <div class="v">Journey 2023</div>
+      </div>
+      <div class="cell">
+        <div class="k">Año</div>
+        <div class="v">2023</div>
+      </div>
+      <div class="cell">
+        <div class="k">Entidad de registro</div>
+        <div class="v small">Ciudad de México</div>
+      </div>
+      <div class="cell">
+        <div class="k">Color exterior</div>
+        <div class="v small"><span class="swatch" style="background:#B9BEC6"></span>Plata</div>
+      </div>
+      <div class="cell">
+        <div class="k">Color de vestidura</div>
+        <div class="v small"><span class="swatch" style="background:#1A1C20"></span>Negro</div>
+      </div>
+    </div>
+    <ul class="notes">
+      <li>El <strong>décimo carácter del VIN es “P”</strong>, que en la nomenclatura internacional corresponde al año modelo <strong>2023</strong>: coincide con el dato declarado.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Verificación vehicular <span>Engomado rojo · terminación 3 o 4</span></h2>
+
+    <div class="months" id="months"></div>
+    <div class="legend">
+      <span><i style="background:var(--engomado)"></i>Bimestre que te toca verificar</span>
+      <span><i style="background:var(--silver)"></i>Mes en curso</span>
+    </div>
+
+    <div class="callout">
+      <div class="t">Próximo periodo</div>
+      <div class="b" id="proximo">Septiembre – Octubre 2026</div>
+      <div class="c" id="restante"></div>
+    </div>
+
+    <ul class="notes">
+      <li>Primer semestre: <strong>marzo y abril</strong>. Segundo semestre: <strong>septiembre y octubre</strong>. El calendario lo publica la SEDEMA en la Gaceta Oficial cada semestre.</li>
+      <li>Verificar fuera de tu bimestre es <strong>multa de 30 UMA</strong> (aprox. $3,500 MXN), además del riesgo de corralón en operativo.</li>
+      <li>No se puede completar el trámite con <strong>adeudos de tenencia, multas de tránsito o fotocívicas</strong>. Revísalos antes de agendar la cita.</li>
+      <li>Lleva: tarjeta de circulación original, identificación oficial, comprobante de la verificación anterior y, si aplica, copia de la factura.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Hoy No Circula <span>Miércoles</span></h2>
+    <div class="days">
+      <div class="d">Lun</div>
+      <div class="d">Mar</div>
+      <div class="d on">Mié</div>
+      <div class="d">Jue</div>
+      <div class="d">Vie</div>
+      <div class="d">Sáb</div>
+      <div class="d">Dom</div>
+    </div>
+    <ul class="notes">
+      <li>El engomado rojo restringe los <strong>miércoles</strong>, pero la restricción real depende del holograma: con <strong>0 o 00 quedas exento</strong>; con <strong>1 o 2</strong> sí aplica.</li>
+      <li>Por año modelo 2023, lo esperable en esta unidad es <strong>holograma 0 o 00</strong>. Confírmalo en tu último certificado antes de darlo por hecho.</li>
+      <li>En contingencia ambiental (Fase I o II) las reglas cambian y pueden alcanzar incluso a hologramas 0 y 00.</li>
+    </ul>
+  </section>
+
+  <footer>
+    <span>Journey 2023 · B34BLP · VIN LMWDT1G87P1132945</span>
+    <span id="generado"></span>
+  </footer>
+
+</div>
+
+<script>
+(function(){
+  var MESES = ["Ene","Feb","Mar","Abr","May","Jun","Jul","Ago","Sep","Oct","Nov","Dic"];
+  var LARGOS = ["enero","febrero","marzo","abril","mayo","junio","julio","agosto","septiembre","octubre","noviembre","diciembre"];
+  var VERIFICA = [2,3,8,9]; // marzo, abril, septiembre, octubre (índice 0)
+  var hoy = new Date();
+  var mesActual = hoy.getMonth();
+  var anio = hoy.getFullYear();
+
+  // Calendario de 12 meses
+  var cont = document.getElementById("months");
+  MESES.forEach(function(m,i){
+    var el = document.createElement("div");
+    el.className = "m" + (VERIFICA.indexOf(i) > -1 ? " on" : "") + (i === mesActual ? " now" : "");
+    el.innerHTML = m + '<span class="n">' + String(i+1).padStart(2,"0") + '</span>';
+    cont.appendChild(el);
+  });
+
+  // Próximo periodo y días restantes
+  var inicio, fin, texto;
+  if (mesActual <= 3) {          // hasta abril → periodo mar-abr de este año
+    inicio = new Date(anio,2,1); fin = new Date(anio,3,30);
+    texto = "Marzo – Abril " + anio;
+  } else if (mesActual <= 9) {   // hasta octubre → periodo sep-oct de este año
+    inicio = new Date(anio,8,1); fin = new Date(anio,9,31);
+    texto = "Septiembre – Octubre " + anio;
+  } else {                       // nov-dic → siguiente periodo mar-abr del año que entra
+    inicio = new Date(anio+1,2,1); fin = new Date(anio+1,3,30);
+    texto = "Marzo – Abril " + (anio+1);
+  }
+  document.getElementById("proximo").textContent = texto;
+
+  var dia = 86400000;
+  var base = new Date(hoy.getFullYear(), hoy.getMonth(), hoy.getDate());
+  var msg;
+  if (base < inicio) {
+    msg = "Faltan " + Math.round((inicio - base)/dia) + " días para que abra el periodo.";
+  } else if (base <= fin) {
+    var quedan = Math.round((fin - base)/dia);
+    msg = "Periodo abierto: quedan " + quedan + " día" + (quedan === 1 ? "" : "s") + " para verificar (cierra el 31 de " + LARGOS[fin.getMonth()] + ").";
+  } else {
+    msg = "Periodo cerrado.";
+  }
+  document.getElementById("restante").textContent = msg;
+
+  document.getElementById("generado").textContent =
+    "Consultada el " + base.getDate() + " de " + LARGOS[base.getMonth()] + " de " + base.getFullYear();
+
+  // Copiar VIN
+  var btn = document.getElementById("btnVin");
+  btn.addEventListener("click", function(){
+    var vin = document.getElementById("vin").textContent.trim();
+    var original = "Copiar VIN";
+    function ok(){ btn.textContent = "VIN copiado"; setTimeout(function(){ btn.textContent = original; }, 1800); }
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(vin).then(ok, function(){ btn.textContent = "No se pudo copiar"; });
+    } else {
+      var t = document.createElement("textarea");
+      t.value = vin; document.body.appendChild(t); t.select();
+      try { document.execCommand("copy"); ok(); } catch(e){ btn.textContent = "No se pudo copiar"; }
+      document.body.removeChild(t);
+    }
+  });
+})();
+</script>
+</body>
+</html>
